@@ -27,6 +27,10 @@ def resolve_output_path():
 
 
 def main():
+    if not isinstance(ROAST, str) or not 1 <= len(ROAST) <= 200:
+        raise ValueError("ROAST must be a string of 1 to 200 characters")
+    if not ROAST.strip():
+        raise ValueError("ROAST must not be blank")
     path = resolve_output_path()
     try:
         parent = os.path.dirname(path)
